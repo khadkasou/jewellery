@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "customer")
-public class Customer extends BaseAuditEntity {
+public class CustomerEntity extends BaseAuditEntity {
 
     private String firstName;
     private String middleName;
@@ -23,5 +24,8 @@ public class Customer extends BaseAuditEntity {
     private String email;
     private String phone;
     private Date dateOfBirth;
+    private String address;
+    @OneToMany(mappedBy ="customer" , cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.EAGER)
+    private List<ProductEntity> products;
 
 }
