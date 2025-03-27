@@ -16,3 +16,7 @@ spring:
         hibernate:
           envers:
             audit_table_suffix: _AUDIT
+
+  server:
+    port: 8001
+    url: http://localhost:8001
